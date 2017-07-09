@@ -7,7 +7,7 @@ package jtv;
 
 /**
  *
- * @author rolmedo
+ * @author Genesys890
  */
 public class JTV {
 
