@@ -6,6 +6,7 @@
 package jtv;
 
 import jtv.frame.main.MainFrame;
+import jtv.frame.main.MediaPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.caprica.vlcj.binding.LibVlc;
@@ -22,17 +23,15 @@ public class JTV {
      */
     private static final Logger _log = LoggerFactory.getLogger(JTV.class);
     
+    
     public static void main(String[] args) {
-        
-        boolean found = new NativeDiscovery().discover();
-        System.out.println(found);
-     
-        System.out.println(LibVlc.INSTANCE.libvlc_get_version());
-        
+      
         MainFrame main = new MainFrame();
-        
+
+        //main.videopanel.add(new MediaPanel().getCanvas());
         main.setVisible(true);
-        main.videoPanel1.play("aoskdj");
+        main.mediaPanel1.runit(JTV.class.getResource("resources/SampleVideo_720x480_30mb.mp4").getPath());
+      
     }
     
 }
