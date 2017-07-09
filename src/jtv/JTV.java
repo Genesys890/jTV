@@ -28,7 +28,7 @@ public class JTV {
       
         MainFrame main = new MainFrame();
 
-        main.videopanel.add(new MediaPanel().getCanvas());
+        //main.videopanel.add(new MediaPanel().getCanvas());
         main.setVisible(true);
         main.mediaPanel1.runit(JTV.class.getResource("resources/SampleVideo_720x480_30mb.mp4").getPath());
       

@@ -47,16 +47,24 @@ public class MainFrame extends javax.swing.JFrame {
         helpmenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
+        mediaPanel1.getMediaPlayer().setSize(videopanel.getWidth(),videopanel.getHeight());
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("jTV");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
-        videopanel.add(mediaPanel1.getCanvas());
+        videopanel.add(mediaPanel1.getMediaPlayer(),BorderLayout.CENTER);
+        mediaPanel1.mediaPlayer.setSize(500, 500);
 
         javax.swing.GroupLayout videopanelLayout = new javax.swing.GroupLayout(videopanel);
         videopanel.setLayout(videopanelLayout);
         videopanelLayout.setHorizontalGroup(
             videopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 645, Short.MAX_VALUE)
+            .addGap(0, 664, Short.MAX_VALUE)
         );
         videopanelLayout.setVerticalGroup(
             videopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,8 +100,8 @@ public class MainFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(videopanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 202, Short.MAX_VALUE))
+                .addComponent(videopanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 183, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,6 +118,12 @@ public class MainFrame extends javax.swing.JFrame {
         version.setVisible(true);
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        this.mediaPanel1.getMediaPlayer().release();
+        System.exit(0);
+    }//GEN-LAST:event_formWindowClosed
     
     /**
      * @param args the command line arguments

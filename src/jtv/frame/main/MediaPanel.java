@@ -6,6 +6,9 @@
 package jtv.frame.main;
 
 import java.awt.Canvas;
+import java.awt.Color;
+import uk.co.caprica.vlcj.component.EmbeddedMediaListPlayerComponent;
+import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
 import uk.co.caprica.vlcj.player.embedded.videosurface.CanvasVideoSurface;
@@ -16,26 +19,24 @@ import uk.co.caprica.vlcj.player.embedded.videosurface.CanvasVideoSurface;
  */
 public class MediaPanel {
 
-    Canvas canvas;
-    MediaPlayerFactory mediaPlayerFactory;
-    CanvasVideoSurface videoSurface;
-    EmbeddedMediaPlayer mediaPlayer;
+    public EmbeddedMediaPlayerComponent mediaPlayer;
     
     public MediaPanel(){
-    canvas = new Canvas();
-    mediaPlayerFactory = new MediaPlayerFactory();
-    mediaPlayer = mediaPlayerFactory.newEmbeddedMediaPlayer();
-    mediaPlayer.setVideoSurface(videoSurface);
-    videoSurface = mediaPlayerFactory.newVideoSurface(canvas);
+  
+
+    mediaPlayer = new EmbeddedMediaListPlayerComponent();
+    mediaPlayer.setSize(500, 500);
+    
   
     }
     public void runit(String file){
     
-        mediaPlayer.playMedia(file);
+        mediaPlayer.getMediaPlayer().playMedia(file);
+        System.out.println("the video is running");
     }
+
     
-    public Canvas getCanvas(){
-        return canvas;
+    public EmbeddedMediaPlayerComponent getMediaPlayer(){
+        return mediaPlayer;
     }
-    
 }
