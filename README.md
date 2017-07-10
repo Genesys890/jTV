@@ -18,7 +18,7 @@ Todo:
 
 
 
-To contribuit
+To contribuite
 
 Just get the project into netbeans and go ahead. 
 
